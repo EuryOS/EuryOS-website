@@ -31,10 +31,26 @@ function FeatureCard({
   )
 }
 
-function FeatureIcon({ icon: Icon }: { icon: React.ElementType }) {
+function FeatureHeading({
+  icon: Icon,
+  title,
+  size = "lg",
+}: {
+  icon: React.ElementType
+  title: string
+  size?: "lg" | "xl"
+}) {
   return (
-    <div className="inline-flex size-10 items-center justify-center rounded-lg border border-border/80 bg-background text-foreground shadow-sm">
-      <Icon className="size-5" />
+    <div className="flex items-center gap-2.5">
+      <Icon className="size-5 text-brand" />
+      <h3
+        className={cn(
+          "font-semibold tracking-tight",
+          size === "xl" ? "text-xl" : "text-lg"
+        )}
+      >
+        {title}
+      </h3>
     </div>
   )
 }
@@ -74,10 +90,7 @@ function Features() {
           {/* Flagship — you're in control */}
           <StaggerItem className="col-span-6 lg:col-span-3">
           <FeatureCard>
-            <FeatureIcon icon={Lock} />
-            <h3 className="mt-5 text-xl font-semibold tracking-tight">
-              Apps only get what you allow
-            </h3>
+            <FeatureHeading icon={Lock} title="Apps only get what you allow" size="xl" />
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               No app can quietly reach your files, your camera, or the internet.
               Each one gets exactly the access you grant, and nothing more.
@@ -111,10 +124,7 @@ function Features() {
           {/* Flagship — problems stay small */}
           <StaggerItem className="col-span-6 lg:col-span-3">
           <FeatureCard>
-            <FeatureIcon icon={ShieldCheck} />
-            <h3 className="mt-5 text-xl font-semibold tracking-tight">
-              A problem stays a small problem
-            </h3>
+            <FeatureHeading icon={ShieldCheck} title="A problem stays a small problem" size="xl" />
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               When something goes wrong, whether a buggy driver or a misbehaving
               app, EuryOS contains it and restarts it on the spot. The rest of
@@ -130,10 +140,7 @@ function Features() {
           {/* Verifiable */}
           <StaggerItem className="col-span-6 sm:col-span-3 lg:col-span-2">
           <FeatureCard>
-            <FeatureIcon icon={CheckCheck} />
-            <h3 className="mt-5 text-lg font-semibold tracking-tight">
-              Proven, not just promised
-            </h3>
+            <FeatureHeading icon={CheckCheck} title="Proven, not just promised" />
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               The core that keeps you safe is small enough to be checked, line by
               line, and proven correct, so EuryOS&apos;s security is something
@@ -145,10 +152,7 @@ function Features() {
           {/* One OS everywhere */}
           <StaggerItem className="col-span-6 sm:col-span-3 lg:col-span-2">
           <FeatureCard>
-            <FeatureIcon icon={Layers} />
-            <h3 className="mt-5 text-lg font-semibold tracking-tight">
-              The same OS, everywhere
-            </h3>
+            <FeatureHeading icon={Layers} title="The same OS, everywhere" />
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               One trusted foundation that runs everywhere, from a tiny
               smart-home device to your everyday workstation, with the same
@@ -160,10 +164,7 @@ function Features() {
           {/* Familiar */}
           <StaggerItem className="col-span-6 lg:col-span-2">
           <FeatureCard>
-            <FeatureIcon icon={Sparkles} />
-            <h3 className="mt-5 text-lg font-semibold tracking-tight">
-              Familiar from the first second
-            </h3>
+            <FeatureHeading icon={Sparkles} title="Familiar from the first second" />
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               A desktop, files, apps, and settings that feel instantly familiar.
               All the reinvention lives under the hood, so there&apos;s nothing
