@@ -1,13 +1,12 @@
 "use client"
 
-import { ArrowRight, KeyRound, Lock, RotateCw, ShieldCheck } from "lucide-react"
-import { motion, useReducedMotion, type Variants } from "motion/react"
+import { ArrowRight } from "lucide-react"
 
 import { siteConfig } from "@/lib/site"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/site/primitives"
 import { Reveal, Stagger, StaggerItem } from "@/components/site/reveal"
-import { WindowFrame } from "@/components/site/window-frame"
+import { ScreenshotPlaceholder } from "@/components/site/screenshot-placeholder"
 
 function HeroBackground() {
   return (
@@ -44,98 +43,6 @@ function Pill() {
   )
 }
 
-type Event = {
-  icon: React.ElementType
-  title: string
-  detail: string
-  status: string
-  tone: "good" | "brand"
-}
-
-const events: Event[] = [
-  {
-    icon: Lock,
-    title: "An app tried to read your files",
-    detail: "Blocked automatically — it was never given access",
-    status: "Blocked",
-    tone: "good",
-  },
-  {
-    icon: RotateCw,
-    title: "A display driver stopped responding",
-    detail: "Restarted in 0.3s · your apps kept running",
-    status: "Recovered",
-    tone: "good",
-  },
-  {
-    icon: KeyRound,
-    title: "Messages asked to use your camera",
-    detail: "You allowed it · revoke anytime in Settings",
-    status: "Allowed",
-    tone: "brand",
-  },
-  {
-    icon: ShieldCheck,
-    title: "System verified at startup",
-    detail: "Untampered, from the chip up",
-    status: "Secure",
-    tone: "good",
-  },
-]
-
-const badgePop: Variants = {
-  hidden: {},
-  show: {
-    scale: [1, 1.12, 1],
-    transition: {
-      delay: 0.35,
-      duration: 0.6,
-      times: [0, 0.5, 1],
-      ease: "easeInOut",
-    },
-  },
-}
-
-function ProtectionPanel() {
-  const reduce = useReducedMotion()
-  return (
-    <WindowFrame title="EuryOS — Activity" bodyClassName="bg-card/60 p-3 sm:p-4">
-      <Stagger className="flex flex-col gap-2">
-        {events.map((e, i) => {
-          const badgeClass =
-            "shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-medium " +
-            (e.tone === "good"
-              ? "border-success/20 bg-success/5 text-success"
-              : "border-border bg-muted text-foreground")
-          return (
-            <StaggerItem
-              key={e.title}
-              className="flex items-center gap-3 rounded-lg border border-border/70 bg-background p-3"
-            >
-              <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-border/70 bg-muted text-foreground">
-                <e.icon className="size-4.5" />
-              </span>
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-medium">{e.title}</div>
-                <div className="truncate text-xs text-muted-foreground">
-                  {e.detail}
-                </div>
-              </div>
-              {i === 0 && !reduce ? (
-                <motion.span variants={badgePop} className={badgeClass}>
-                  {e.status}
-                </motion.span>
-              ) : (
-                <span className={badgeClass}>{e.status}</span>
-              )}
-            </StaggerItem>
-          )
-        })}
-      </Stagger>
-    </WindowFrame>
-  )
-}
-
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pb-20 pt-32 sm:pt-40">
@@ -151,18 +58,16 @@ function Hero() {
 
           <StaggerItem>
             <h1 className="mt-7 max-w-4xl text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-              <span className="text-gradient">Secure by design.</span>
-              <br className="hidden sm:block" />{" "}
-              <span className="text-gradient">Familiar by default.</span>
+              Secure by design.
+              <br className="hidden sm:block" /> Familiar by default.
             </h1>
           </StaggerItem>
 
           <StaggerItem>
             <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
               EuryOS is a new kind of operating system that protects everything
-              you do — keeping apps in their lane, threats locked out, and your
-              work running smoothly. No malware free-for-all. No mystery crashes.
-              No compromises.
+              you do: keeping apps in their lane, threats locked out, and your
+              work running smoothly.
             </p>
           </StaggerItem>
 
@@ -182,19 +87,12 @@ function Hero() {
               <a href="#why">See how it works</a>
             </Button>
           </StaggerItem>
-
-          <StaggerItem>
-            <p className="mt-6 text-xs text-muted-foreground">
-              Launching 2026 · One operating system, from the smallest device to
-              your workstation
-            </p>
-          </StaggerItem>
         </Stagger>
       </Container>
 
       <Reveal delay={0.3} className="relative">
-        <Container className="relative mt-10 max-w-3xl sm:mt-12">
-          <ProtectionPanel />
+        <Container className="relative mt-14 max-w-5xl sm:mt-16">
+          <ScreenshotPlaceholder label="EuryOS desktop" className="shadow-lg" />
         </Container>
       </Reveal>
     </section>

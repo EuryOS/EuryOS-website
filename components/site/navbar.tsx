@@ -73,7 +73,7 @@ function Navbar() {
           <div className="flex items-center gap-1">
             <ThemeToggle className="hidden sm:inline-flex" />
             <Button asChild size="sm" className="hidden h-8 px-3.5 sm:inline-flex">
-              <a href={siteConfig.contact}>Contact us</a>
+              <a href={siteConfig.contact}>Get in touch</a>
             </Button>
 
             <Sheet open={open} onOpenChange={setOpen}>
@@ -111,7 +111,7 @@ function Navbar() {
                     <ThemeToggle />
                   </div>
                   <Button asChild className="w-full">
-                    <a href={siteConfig.contact}>Contact us</a>
+                    <a href={siteConfig.contact}>Get in touch</a>
                   </Button>
                 </div>
               </SheetContent>

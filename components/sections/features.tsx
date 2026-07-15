@@ -1,4 +1,5 @@
 import {
+  Check,
   CheckCheck,
   Layers,
   Lock,
@@ -10,7 +11,6 @@ import { cn } from "@/lib/utils"
 import { Container, SectionHeading } from "@/components/site/primitives"
 import { Reveal, Stagger, StaggerItem } from "@/components/site/reveal"
 import { SelfHealing } from "@/components/sections/self-healing"
-import { MagicCard } from "@/components/ui/magic-card"
 
 function FeatureCard({
   className,
@@ -20,14 +20,14 @@ function FeatureCard({
   children: React.ReactNode
 }) {
   return (
-    <MagicCard
+    <div
       className={cn(
         "h-full rounded-lg border border-border/70 bg-card p-6 shadow-sm transition-colors hover:border-foreground/20 hover:bg-muted/30 sm:p-7",
         className
       )}
     >
       {children}
-    </MagicCard>
+    </div>
   )
 }
 
@@ -66,7 +66,7 @@ function Features() {
           <SectionHeading
             eyebrow="Why EuryOS"
             title="A safer place for everything you do."
-            description="Most operating systems were built in an era that assumed everything could be trusted. EuryOS starts from the opposite idea — nothing gets more than you explicitly allow — so you get security and reliability you can actually feel."
+            description="Most operating systems were built in an era that assumed everything could be trusted. EuryOS starts from the opposite idea: nothing gets more than you explicitly allow, so you get security and reliability you can actually feel."
           />
         </Reveal>
 
@@ -80,7 +80,7 @@ function Features() {
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               No app can quietly reach your files, your camera, or the internet.
-              Each one gets exactly the access you grant — and nothing more.
+              Each one gets exactly the access you grant, and nothing more.
               There&apos;s no all-powerful &ldquo;administrator&rdquo; for malware
               to take over.
             </p>
@@ -89,9 +89,10 @@ function Features() {
                 {["Files", "Camera", "Internet"].map((c) => (
                   <span
                     key={c}
-                    className="rounded-md border border-success/20 bg-success/5 px-2 py-1 text-success"
+                    className="inline-flex items-center gap-1 rounded-md border border-success/20 bg-success/5 px-2 py-1 text-success"
                   >
-                    {c} ✓
+                    {c}
+                    <Check className="size-3" strokeWidth={3} />
                   </span>
                 ))}
                 <span className="rounded-md border border-border bg-muted px-2 py-1 text-muted-foreground line-through decoration-destructive/70">
@@ -100,7 +101,7 @@ function Features() {
               </div>
               <div className="mt-3 text-muted-foreground">
                 access is yours to{" "}
-                <span className="text-foreground">give</span> — and{" "}
+                <span className="text-foreground">give</span> and{" "}
                 <span className="text-foreground">take back</span>
               </div>
             </MiniPanel>
@@ -115,9 +116,10 @@ function Features() {
               A problem stays a small problem
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              When something goes wrong — a buggy driver, a misbehaving app —
-              EuryOS contains it and restarts it on the spot. The rest of your
-              system never notices. No spinning wheels, no lost work, no reboots.
+              When something goes wrong, whether a buggy driver or a misbehaving
+              app, EuryOS contains it and restarts it on the spot. The rest of
+              your system never notices. No spinning wheels, no lost work, no
+              reboots.
             </p>
             <MiniPanel className="mt-auto font-mono">
               <SelfHealing />
@@ -134,7 +136,7 @@ function Features() {
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               The core that keeps you safe is small enough to be checked, line by
-              line, and proven correct — so EuryOS&apos;s security is something
+              line, and proven correct, so EuryOS&apos;s security is something
               experts can verify, not just a promise you have to take on trust.
             </p>
           </FeatureCard>
@@ -148,7 +150,7 @@ function Features() {
               The same OS, everywhere
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              One trusted foundation that runs everywhere — from a tiny
+              One trusted foundation that runs everywhere, from a tiny
               smart-home device to your everyday workstation, with the same
               protection.
             </p>
@@ -164,7 +166,7 @@ function Features() {
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
               A desktop, files, apps, and settings that feel instantly familiar.
-              All the reinvention lives under the hood — so there&apos;s nothing
+              All the reinvention lives under the hood, so there&apos;s nothing
               new to learn.
             </p>
           </FeatureCard>

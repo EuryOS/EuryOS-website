@@ -112,7 +112,7 @@ function StackDiagram() {
         <StaggerItem>
           <Band
             label="Your device"
-            sublabel="Phone · laptop · workstation · server"
+            sublabel="Phone, laptop, workstation, server"
             chips={["any hardware"]}
           />
         </StaggerItem>
@@ -125,12 +125,12 @@ const supports = [
   {
     icon: ShieldCheck,
     title: "A tiny core you can trust",
-    body: "Only a small, compact core has full control — small enough to be checked and proven correct, unlike a sprawling traditional system.",
+    body: "Only a small, compact core has full control. It's small enough to be checked and proven correct, unlike a sprawling traditional system.",
   },
   {
     icon: RotateCw,
     title: "Self-healing by default",
-    body: "Drivers and features run on their own. If one fails, EuryOS restarts it in place — your apps and your work simply keep going.",
+    body: "Drivers and features run on their own. If one fails, EuryOS restarts it in place. Your apps and your work simply keep going.",
   },
   {
     icon: Boxes,
@@ -150,7 +150,7 @@ function Architecture() {
           <SectionHeading
             eyebrow="Reliability"
             title="Built so problems can't spread."
-            description="EuryOS keeps every part of the system in its own protected space. So when one piece stumbles, it's caught and restarted — without dragging everything else down with it."
+            description="EuryOS keeps every part of the system in its own protected space. So when one piece stumbles, it's caught and restarted, without dragging everything else down with it."
           />
         </Reveal>
 

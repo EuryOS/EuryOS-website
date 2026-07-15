@@ -1,6 +1,6 @@
 "use client"
 
-import { EyeOff, KeyRound, Lock, ShieldCheck } from "lucide-react"
+import { Check, EyeOff, Image as ImageIcon, KeyRound, Lock, ShieldCheck, X } from "lucide-react"
 import { motion, useReducedMotion, type Variants } from "motion/react"
 
 import { Container, SectionHeading } from "@/components/site/primitives"
@@ -11,7 +11,7 @@ const pillars = [
   {
     icon: KeyRound,
     title: "You're always in control",
-    body: "Apps ask before they touch your files, camera, or network — and you can take that permission back the instant you change your mind.",
+    body: "Apps ask before they touch your files, camera, or network, and you can take that permission back the instant you change your mind.",
   },
   {
     icon: Lock,
@@ -26,7 +26,7 @@ const pillars = [
   {
     icon: EyeOff,
     title: "Private by design",
-    body: "Your data goes only where you send it. EuryOS enforces it — it isn't a setting you have to remember to switch on.",
+    body: "Your data goes only where you send it. EuryOS enforces it. It isn't a setting you have to remember to switch on.",
   },
 ]
 
@@ -64,9 +64,9 @@ function ReachMark({ allowed }: { allowed: boolean }) {
       }
     >
       {allowed ? (
-        <svg viewBox="0 0 24 24" className="size-3" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <Check className="size-3" strokeWidth={3} />
       ) : (
-        <svg viewBox="0 0 24 24" className="size-3" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <X className="size-3" strokeWidth={3} />
       )}
     </motion.span>
   )
@@ -85,7 +85,7 @@ function PermissionCard() {
     <WindowFrame title="Permission" bodyClassName="bg-card/60">
       <div className="flex items-start gap-3">
         <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-foreground">
-          <Sparkle />
+          <ImageIcon className="size-5" />
         </span>
         <div className="min-w-0">
           <div className="text-sm font-semibold">Photo Editor</div>
@@ -141,16 +141,6 @@ function PermissionCard() {
   )
 }
 
-function Sparkle() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-5" fill="currentColor" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" fillOpacity="0.25" />
-      <circle cx="9" cy="10" r="2" />
-      <path d="M5 18l4-4 3 3 3-4 4 5z" />
-    </svg>
-  )
-}
-
 function Security() {
   return (
     <section id="security" className="relative overflow-hidden border-t border-border/60 py-24 sm:py-28">
@@ -159,9 +149,8 @@ function Security() {
           <div>
             <Reveal>
               <SectionHeading
-                eyebrow="Security"
                 title="Built in, not bolted on."
-                description="Most systems try to catch threats after they're already inside. EuryOS is built so that nothing — no app, no download, no device — can do anything you didn't allow in the first place."
+                description="Most systems try to catch threats after they're already inside. EuryOS is built so that nothing (no app, no download, no device) can do anything you didn't allow in the first place."
               />
             </Reveal>
 

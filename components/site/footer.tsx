@@ -32,7 +32,7 @@ function Footer() {
           <div className="flex max-w-xs flex-col gap-4">
             <EuryWordmark />
             <p className="text-sm leading-relaxed text-muted-foreground">
-              A secure, reliable operating system for everything you do —
+              A secure, reliable operating system for everything you do,
               designed from the ground up to protect you by default.
             </p>
           </div>
