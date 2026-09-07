@@ -8,17 +8,20 @@ import { MarkGlyph } from "@/components/site/logo"
 
 function CTA() {
   return (
-    <section id="contact" className="relative border-t border-border/60 bg-neutral-950 py-24 text-white sm:py-28">
+    <section
+      id="contact"
+      className="relative border-t border-border/60 bg-neutral-950 py-24 text-white sm:py-28"
+    >
       <Container>
         <div className="relative overflow-hidden border-x border-white/10 px-6 py-16 text-center sm:px-16 sm:py-20">
-          <MarkGlyph className="pointer-events-none absolute -bottom-10 -right-6 size-48 text-white/[0.035]" />
+          <MarkGlyph className="pointer-events-none absolute -right-6 -bottom-10 size-48 text-white/[0.035]" />
 
           <Reveal className="relative mx-auto flex max-w-2xl flex-col items-center">
-            <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
               Ready for computing you can trust?
             </h2>
-            <p className="mt-4 text-pretty text-base leading-relaxed text-neutral-400 sm:text-lg">
-              EuryOS is launching in 2026. Get in touch to see a demo, ask a
+            <p className="mt-4 text-base leading-relaxed text-pretty text-neutral-400 sm:text-lg">
+              EuryOS is launching in 2027. Get in touch to see a demo, ask a
               question, or be among the first to make the switch.
             </p>
 
