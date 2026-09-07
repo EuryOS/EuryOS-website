@@ -81,96 +81,108 @@ function Features() {
         <Reveal>
           <SectionHeading
             eyebrow="Why EuryOS"
-            title="A safer place for everything you do."
-            description="Most operating systems were built in an era that assumed everything could be trusted. EuryOS starts from the opposite idea: nothing gets more than you explicitly allow, so you get security and reliability you can actually feel."
+            title="Give each app a boundary."
+            description="EuryOS asks before an app reaches your files, camera, or network. You can see each permission, change it, and keep working while the system contains failures."
           />
         </Reveal>
 
         <Stagger className="mt-14 grid grid-cols-6 gap-4">
           {/* Flagship — you're in control */}
           <StaggerItem className="col-span-6 lg:col-span-3">
-          <FeatureCard>
-            <FeatureHeading icon={Lock} title="Apps only get what you allow" size="xl" />
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              No app can quietly reach your files, your camera, or the internet.
-              Each one gets exactly the access you grant, and nothing more.
-              There&apos;s no all-powerful &ldquo;administrator&rdquo; for malware
-              to take over.
-            </p>
-            <MiniPanel className="mt-auto font-mono">
-              <div className="flex flex-wrap items-center gap-2">
-                {["Files", "Camera", "Internet"].map((c) => (
-                  <span
-                    key={c}
-                    className="inline-flex items-center gap-1 rounded-md border border-success/20 bg-success/5 px-2 py-1 text-success"
-                  >
-                    {c}
-                    <Check className="size-3" strokeWidth={3} />
+            <FeatureCard>
+              <FeatureHeading
+                icon={Lock}
+                title="Apps only get what you allow"
+                size="xl"
+              />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                An app can reach your files, camera, or network only after you
+                grant access. You can revoke that access whenever you choose.
+              </p>
+              <MiniPanel className="mt-auto font-mono">
+                <div className="flex flex-wrap items-center gap-2">
+                  {["Files", "Camera", "Internet"].map((c) => (
+                    <span
+                      key={c}
+                      className="inline-flex items-center gap-1 rounded-md border border-success/20 bg-success/5 px-2 py-1 text-success"
+                    >
+                      {c}
+                      <Check className="size-3" strokeWidth={3} />
+                    </span>
+                  ))}
+                  <span className="rounded-md border border-border bg-muted px-2 py-1 text-muted-foreground line-through decoration-destructive/70">
+                    Everything else
                   </span>
-                ))}
-                <span className="rounded-md border border-border bg-muted px-2 py-1 text-muted-foreground line-through decoration-destructive/70">
-                  Everything else
-                </span>
-              </div>
-              <div className="mt-3 text-muted-foreground">
-                access is yours to{" "}
-                <span className="text-foreground">give</span> and{" "}
-                <span className="text-foreground">take back</span>
-              </div>
-            </MiniPanel>
-          </FeatureCard>
+                </div>
+                <div className="mt-3 text-muted-foreground">
+                  access is yours to{" "}
+                  <span className="text-foreground">give</span> and{" "}
+                  <span className="text-foreground">take back</span>
+                </div>
+              </MiniPanel>
+            </FeatureCard>
           </StaggerItem>
 
           {/* Flagship — problems stay small */}
           <StaggerItem className="col-span-6 lg:col-span-3">
-          <FeatureCard>
-            <FeatureHeading icon={ShieldCheck} title="A problem stays a small problem" size="xl" />
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              When something goes wrong, whether a buggy driver or a misbehaving
-              app, EuryOS contains it and restarts it on the spot. The rest of
-              your system never notices. No spinning wheels, no lost work, no
-              reboots.
-            </p>
-            <MiniPanel className="mt-auto font-mono">
-              <SelfHealing />
-            </MiniPanel>
-          </FeatureCard>
+            <FeatureCard>
+              <FeatureHeading
+                icon={ShieldCheck}
+                title="A problem stays a small problem"
+                size="xl"
+              />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                EuryOS keeps a buggy driver or app in its own protected space.
+                If it fails, the system restarts that part while your other apps
+                stay open.
+              </p>
+              <MiniPanel className="mt-auto font-mono">
+                <SelfHealing />
+              </MiniPanel>
+            </FeatureCard>
           </StaggerItem>
 
           {/* Verifiable */}
           <StaggerItem className="col-span-6 sm:col-span-3 lg:col-span-2">
-          <FeatureCard>
-            <FeatureHeading icon={CheckCheck} title="Proven, not just promised" />
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              The core that keeps you safe is small enough to be checked, line by
-              line, and proven correct, so EuryOS&apos;s security is something
-              experts can verify, not just a promise you have to take on trust.
-            </p>
-          </FeatureCard>
+            <FeatureCard>
+              <FeatureHeading
+                icon={CheckCheck}
+                title="Proven, not just promised"
+              />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                The core that keeps you safe is small enough to be checked, line
+                by line, and proven correct, so EuryOS&apos;s security is
+                something experts can verify, not just a promise you have to
+                take on trust.
+              </p>
+            </FeatureCard>
           </StaggerItem>
 
           {/* One OS everywhere */}
           <StaggerItem className="col-span-6 sm:col-span-3 lg:col-span-2">
-          <FeatureCard>
-            <FeatureHeading icon={Layers} title="The same OS, everywhere" />
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              One trusted foundation that runs everywhere, from a tiny
-              smart-home device to your everyday workstation, with the same
-              protection.
-            </p>
-          </FeatureCard>
+            <FeatureCard>
+              <FeatureHeading icon={Layers} title="The same OS, everywhere" />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                One trusted foundation that runs everywhere, from a tiny
+                smart-home device to your everyday workstation, with the same
+                protection.
+              </p>
+            </FeatureCard>
           </StaggerItem>
 
           {/* Familiar */}
           <StaggerItem className="col-span-6 lg:col-span-2">
-          <FeatureCard>
-            <FeatureHeading icon={Sparkles} title="Familiar from the first second" />
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              A desktop, files, apps, and settings that feel instantly familiar.
-              All the reinvention lives under the hood, so there&apos;s nothing
-              new to learn.
-            </p>
-          </FeatureCard>
+            <FeatureCard>
+              <FeatureHeading
+                icon={Sparkles}
+                title="Familiar from the first second"
+              />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                A desktop, files, apps, and settings that feel instantly
+                familiar. All the reinvention lives under the hood, so
+                there&apos;s nothing new to learn.
+              </p>
+            </FeatureCard>
           </StaggerItem>
         </Stagger>
       </Container>

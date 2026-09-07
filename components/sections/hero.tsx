@@ -44,7 +44,7 @@ function Pill() {
         {siteConfig.version}
       </span>
       <span className="text-muted-foreground">
-        Launching in {siteConfig.launchYear} · join the first wave
+        2027 preview · see what we&apos;re building
       </span>
       <ArrowRight className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
     </a>

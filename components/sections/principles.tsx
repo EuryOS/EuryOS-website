@@ -8,12 +8,14 @@ const priorities = [
   {
     rank: "01",
     name: "Security",
-    gloss: "Your safety always comes first, even over speed or convenience.",
+    gloss:
+      "Your safety comes first, even when speed or convenience would be easier.",
   },
   {
     rank: "02",
     name: "Reliability",
-    gloss: "It should just keep working. Contain problems; never lose your work.",
+    gloss:
+      "Contain problems and keep your work intact while the system recovers.",
   },
   {
     rank: "03",
@@ -33,7 +35,7 @@ const priorities = [
   {
     rank: "06",
     name: "Compatibility",
-    gloss: "Familiar to use, without dragging along yesterday's baggage.",
+    gloss: "Keep the interface familiar while the foundation moves forward.",
   },
 ]
 
@@ -48,8 +50,8 @@ function Principles() {
           <SectionHeading
             align="center"
             eyebrow="Our priorities"
-            title="What we won't compromise."
-            description="These are the priorities behind every decision we make, listed in the order that matters most. Your security always comes first, never traded away for speed or convenience."
+            title="How we make trade-offs."
+            description="When priorities compete, we use this order: protect your data first, keep the system running, then improve speed, reach, simplicity, and compatibility."
             className="mx-auto items-center"
           />
         </Reveal>

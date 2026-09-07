@@ -18,11 +18,11 @@ function CTA() {
 
           <Reveal className="relative mx-auto flex max-w-2xl flex-col items-center">
             <h2 className="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
-              Ready for computing you can trust?
+              See EuryOS before launch.
             </h2>
             <p className="mt-4 text-base leading-relaxed text-pretty text-neutral-400 sm:text-lg">
-              EuryOS is launching in 2027. Get in touch to see a demo, ask a
-              question, or be among the first to make the switch.
+              EuryOS launches in 2027. Request a demo, ask a question, or join
+              the preview list.
             </p>
 
             <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">

@@ -43,7 +43,10 @@ function Band({
           )}
         >
           {highlight ? (
-            <span className="size-2 rounded-full bg-foreground" aria-hidden="true" />
+            <span
+              className="size-2 rounded-full bg-foreground"
+              aria-hidden="true"
+            />
           ) : null}
           {label}
         </span>
@@ -106,7 +109,7 @@ function StackDiagram() {
             highlight
             label="EuryOS core"
             sublabel="Small, trusted, and verified"
-            chips={["always running"]}
+            chips={["trusted core"]}
           />
         </StaggerItem>
         <StaggerItem>
@@ -135,7 +138,7 @@ const supports = [
   {
     icon: Boxes,
     title: "Everything else is just an app",
-    body: "Even core features live in their own protected space, so a single failure can never bring down the whole system.",
+    body: "Even core features live in their own protected space, so one failure stays isolated from the rest of the system.",
   },
 ]
 
@@ -150,7 +153,7 @@ function Architecture() {
           <SectionHeading
             eyebrow="Reliability"
             title="Built so problems can't spread."
-            description="EuryOS keeps every part of the system in its own protected space. So when one piece stumbles, it's caught and restarted, without dragging everything else down with it."
+            description="EuryOS keeps each part of the system in its own protected space. When one piece stumbles, the system catches and restarts it while the rest keeps running."
           />
         </Reveal>
 

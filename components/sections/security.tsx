@@ -1,6 +1,14 @@
 "use client"
 
-import { Check, EyeOff, Image as ImageIcon, KeyRound, Lock, ShieldCheck, X } from "lucide-react"
+import {
+  Check,
+  EyeOff,
+  Image as ImageIcon,
+  KeyRound,
+  Lock,
+  ShieldCheck,
+  X,
+} from "lucide-react"
 import { motion, useReducedMotion, type Variants } from "motion/react"
 
 import { Container, SectionHeading } from "@/components/site/primitives"
@@ -10,7 +18,7 @@ import { WindowFrame } from "@/components/site/window-frame"
 const pillars = [
   {
     icon: KeyRound,
-    title: "You're always in control",
+    title: "Control each permission",
     body: "Apps ask before they touch your files, camera, or network, and you can take that permission back the instant you change your mind.",
   },
   {
@@ -113,7 +121,7 @@ function PermissionCard() {
       </div>
 
       <div className="mt-5 border-t border-border/70 pt-4">
-        <div className="mb-2.5 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <div className="mb-2.5 text-xs font-medium tracking-wide text-muted-foreground uppercase">
           What it can reach
         </div>
         <motion.ul
@@ -130,7 +138,11 @@ function PermissionCard() {
               className="flex items-center gap-2.5 text-sm"
             >
               <ReachMark allowed={r.allowed} />
-              <span className={r.allowed ? "text-foreground" : "text-muted-foreground"}>
+              <span
+                className={
+                  r.allowed ? "text-foreground" : "text-muted-foreground"
+                }
+              >
                 {r.label}
               </span>
             </motion.li>
@@ -143,14 +155,17 @@ function PermissionCard() {
 
 function Security() {
   return (
-    <section id="security" className="relative overflow-hidden border-t border-border/60 py-24 sm:py-28">
+    <section
+      id="security"
+      className="relative overflow-hidden border-t border-border/60 py-24 sm:py-28"
+    >
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <Reveal>
               <SectionHeading
                 title="Built in, not bolted on."
-                description="Most systems try to catch threats after they're already inside. EuryOS is built so that nothing (no app, no download, no device) can do anything you didn't allow in the first place."
+                description="EuryOS checks access at the boundary. Apps, downloads, and devices get the permissions you grant, so you can understand what each part of the system can reach."
               />
             </Reveal>
 
