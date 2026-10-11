@@ -47,14 +47,16 @@ function ScreenshotPlaceholder({
             Everything in its place.
           </div>
           <div className="mt-4 grid grid-cols-3 gap-2">
-            {["3 apps", "0 threats", "Verified"].map((item) => (
-              <div
-                key={item}
-                className="rounded border border-border/70 bg-background p-2 text-[9px] text-muted-foreground"
-              >
-                {item}
-              </div>
-            ))}
+            {["Separate apps", "Clear access", "Contained faults"].map(
+              (item) => (
+                <div
+                  key={item}
+                  className="rounded border border-border/70 bg-background p-2 text-[9px] text-muted-foreground"
+                >
+                  {item}
+                </div>
+              )
+            )}
           </div>
           <div className="mt-2 rounded border border-border/70 bg-background p-2 text-[9px] text-muted-foreground">
             Recent activity{" "}

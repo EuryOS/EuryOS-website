@@ -54,7 +54,7 @@ function Pill() {
 function DesktopPreview() {
   return (
     <WindowFrame
-      title="EuryOS · Overview"
+      title="EuryOS · App permissions"
       className="bg-card/90 shadow-2xl shadow-black/10"
       bodyClassName="bg-muted/20 p-0"
     >
@@ -62,7 +62,7 @@ function DesktopPreview() {
         <aside className="border-r border-border/70 bg-card/70 p-3 sm:p-4">
           <div className="mb-7 flex items-center gap-2 text-xs font-semibold">
             <span className="size-2 rounded-full bg-success" />
-            System healthy
+            Apps stay contained
           </div>
           <div className="space-y-1 text-xs text-muted-foreground">
             {["Overview", "Apps", "Files", "Permissions"].map((item, index) => (
@@ -88,21 +88,21 @@ function DesktopPreview() {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[10px] tracking-[0.18em] text-brand uppercase">
-                Good morning
+                Permission request
               </p>
               <h3 className="mt-1 text-lg font-semibold tracking-tight sm:text-2xl">
-                Everything is in its place.
+                Photo Editor wants a file.
               </h3>
             </div>
             <div className="hidden rounded-full border border-success/20 bg-success/10 px-2.5 py-1 text-[10px] font-medium text-success sm:block">
-              Protected
+              Your choice
             </div>
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
-              ["3", "apps running"],
-              ["0", "threats found"],
-              ["100%", "core verified"],
+              ["Chosen file", "After approval"],
+              ["Other files", "Blocked"],
+              ["Camera", "Blocked"],
             ].map(([value, label]) => (
               <div
                 key={label}
@@ -119,23 +119,21 @@ function DesktopPreview() {
           </div>
           <div className="mt-3 rounded-lg border border-border/70 bg-card p-3 sm:p-4">
             <div className="flex items-center justify-between text-xs font-medium">
-              <span>Recent activity</span>
-              <span className="text-muted-foreground">View all</span>
+              <span>Access stays limited</span>
+              <span className="text-muted-foreground">Until you allow it</span>
             </div>
             <div className="mt-3 space-y-2.5 text-[10px] text-muted-foreground sm:text-xs">
               {[
-                ["Photo Editor", "File access approved"],
-                ["System", "Driver restarted safely"],
-                ["Browser", "Network access blocked"],
+                ["Chosen file", "Only after approval"],
+                ["Other files", "Blocked"],
+                ["Camera & network", "Blocked"],
               ].map(([app, action], index) => (
                 <div key={action} className="flex items-center gap-2.5">
                   <span className="inline-flex size-5 items-center justify-center rounded-full bg-muted text-foreground">
-                    {index === 1 ? (
-                      <RotateCw className="size-3" />
-                    ) : index === 2 ? (
-                      <LockKeyhole className="size-3" />
-                    ) : (
+                    {index === 0 ? (
                       <Check className="size-3" />
+                    ) : (
+                      <LockKeyhole className="size-3" />
                     )}
                   </span>
                   <span>
@@ -169,16 +167,16 @@ function Hero() {
 
           <StaggerItem>
             <h1 className="mt-7 max-w-4xl text-4xl leading-[1.05] font-semibold tracking-tight text-balance sm:text-6xl">
-              Security you can feel. <br className="hidden sm:block" />{" "}
-              Familiarity you don&apos;t have to learn.
+              A familiar computer. <br className="hidden sm:block" />
+              Every app in its own space.
             </h1>
           </StaggerItem>
 
           <StaggerItem>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">
-              EuryOS gives every app its own protected space, contains failures
-              before they spread, and keeps your work moving. Built from the
-              foundation up for 2027 and beyond.
+              EuryOS gives each app its own protected space and asks before it
+              can reach your files, camera, or network. If something fails, the
+              rest keeps running.
             </p>
           </StaggerItem>
 
