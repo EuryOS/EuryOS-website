@@ -1,0 +1,176 @@
+.desktop {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #363e49;
+  box-shadow: 0 28px 64px -28px #1d1d1f55;
+}
+
+.wallpaper {
+  z-index: -1;
+  object-fit: cover;
+}
+
+.workspace,
+.status,
+.dock {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffffff88;
+  background: #1d1d1f66;
+  color: #fff;
+  backdrop-filter: blur(12px);
+}
+
+.workspace {
+  top: 2.5%;
+  left: 2%;
+  justify-content: center;
+  width: 3.5cqw;
+  height: 3cqw;
+  border-radius: 50%;
+}
+
+.workspace span {
+  width: 1.4cqw;
+  height: 0.5cqw;
+  border-radius: 100px;
+  background: #fff;
+}
+
+.status {
+  top: 2.5%;
+  right: 2%;
+  gap: 1.1cqw;
+  padding: 0.65cqw 1.3cqw;
+  border-radius: 100px;
+  font-size: 1.6cqw;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.status svg {
+  width: 1.8cqw;
+  height: 1.8cqw;
+  stroke-width: 1.7;
+}
+
+.separator {
+  width: 1px;
+  height: 1.8cqw;
+  background: #ffffff66;
+}
+
+.window {
+  position: absolute;
+  height: auto;
+  border-radius: 1cqw;
+  box-shadow: 0 1.2cqw 3cqw #1d1d1f33;
+}
+
+.code {
+  top: 15%;
+  left: 5%;
+  width: 55%;
+}
+
+.notes {
+  top: 21%;
+  right: 5%;
+  width: 48%;
+}
+
+.dock {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 0.7cqw;
+  padding: 1.1cqw 2.5cqw 1.3cqw;
+  border-radius: 3.3cqw 3.3cqw 0 0;
+  box-shadow: 0 0.5cqw 2cqw #1d1d1f33;
+}
+
+.dock > span {
+  display: grid;
+  width: 3.4cqw;
+  height: 3.4cqw;
+  place-items: center;
+  border-radius: 1.1cqw;
+  background: #6e6e7388;
+}
+
+.dock > .search {
+  border-radius: 50%;
+  background: #1d1d1f66;
+}
+
+.dock svg {
+  width: 1.8cqw;
+  height: 1.8cqw;
+  stroke-width: 1.8;
+}
+
+@media (max-width: 639px) {
+  .desktop {
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+  }
+
+  .code {
+    display: none;
+  }
+
+  .notes {
+    top: 16%;
+    right: 5%;
+    width: 90%;
+    border-radius: 1.7cqw;
+  }
+
+  .workspace {
+    width: 6cqw;
+    height: 5.5cqw;
+  }
+
+  .workspace span {
+    width: 2.5cqw;
+    height: 0.8cqw;
+  }
+
+  .status {
+    gap: 2cqw;
+    padding: 1.3cqw 2cqw;
+    font-size: 2.8cqw;
+  }
+
+  .status svg {
+    width: 3.2cqw;
+    height: 3.2cqw;
+  }
+
+  .separator {
+    height: 3.2cqw;
+  }
+
+  .dock {
+    gap: 1.5cqw;
+    padding: 2cqw 5cqw 2.5cqw;
+    border-radius: 6cqw 6cqw 0 0;
+  }
+
+  .dock > span {
+    width: 6cqw;
+    height: 6cqw;
+    border-radius: 2cqw;
+  }
+
+  .dock svg {
+    width: 3.4cqw;
+    height: 3.4cqw;
+  }
+}
