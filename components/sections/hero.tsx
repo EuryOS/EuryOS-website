@@ -100,7 +100,7 @@ function DesktopPreview() {
               ["Camera", "Blocked"],
             ].map(([value, label]) => (
               <div
-                key={label}
+                key={value}
                 className="rounded-lg border border-border/70 bg-card p-3 sm:p-4"
               >
                 <div className="font-display text-xl font-semibold sm:text-2xl">
@@ -123,7 +123,7 @@ function DesktopPreview() {
                 ["Other files", "Blocked"],
                 ["Camera & network", "Blocked"],
               ].map(([app, action], index) => (
-                <div key={action} className="flex items-center gap-2.5">
+                <div key={app} className="flex items-center gap-2.5">
                   <span className="inline-flex size-5 items-center justify-center rounded-full bg-muted text-foreground">
                     {index === 0 ? (
                       <Check className="size-3" />
