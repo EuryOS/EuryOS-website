@@ -34,18 +34,28 @@ const shots = [
 
 function Platform() {
   return (
-    <section id="experience" className="relative border-t border-border/60 py-24 sm:py-28">
+    <section
+      id="experience"
+      className="relative border-t border-border/60 py-24 sm:py-28"
+    >
       <Container>
         <Reveal>
           <SectionHeading
-            title="Everything you expect from your computer."
-            description="Familiar on the surface, reinvented underneath: a fast desktop, reliable files, and safe, secure accounts, ready from the first minute."
+            eyebrow="Familiar desktop"
+            title="A computer that feels like a computer."
+            description="The goal is a familiar desktop for everyday tasks. These interface sketches are concepts; compatibility, supported devices, and release details are still being defined."
           />
         </Reveal>
 
-        <Stagger className="mt-14 grid grid-cols-6 gap-4">
+        <p className="mt-10 text-xs text-muted-foreground">
+          Interface concepts
+        </p>
+        <Stagger className="mt-4 grid grid-cols-6 gap-4">
           {shots.map((shot) => (
-            <StaggerItem key={shot.label} className={cn("flex flex-col gap-3", shot.className)}>
+            <StaggerItem
+              key={shot.label}
+              className={cn("flex flex-col gap-3", shot.className)}
+            >
               <ScreenshotPlaceholder label={shot.label} ratio={shot.ratio} />
               <div className="flex items-center gap-2 text-sm font-medium text-foreground">
                 <shot.icon className="size-4 text-muted-foreground" />

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sheet"
 import { EuryWordmark } from "@/components/site/logo"
 import { ThemeToggle } from "@/components/site/theme-toggle"
+import { TallySignupButton } from "@/components/site/tally-signup"
 
 function useScrolled(threshold = 8) {
   const [scrolled, setScrolled] = React.useState(false)
@@ -72,9 +73,12 @@ function Navbar() {
 
           <div className="flex items-center gap-1">
             <ThemeToggle className="hidden sm:inline-flex" />
-            <Button asChild size="sm" className="hidden h-8 px-3.5 sm:inline-flex">
-              <a href={siteConfig.contact}>Get in touch</a>
-            </Button>
+            <TallySignupButton
+              size="sm"
+              className="hidden h-8 px-3.5 sm:inline-flex"
+            >
+              Join waitlist
+            </TallySignupButton>
 
             <Sheet open={open} onOpenChange={setOpen}>
               <SheetTrigger asChild>
@@ -110,9 +114,9 @@ function Navbar() {
                     <span className="text-sm text-muted-foreground">Theme</span>
                     <ThemeToggle />
                   </div>
-                  <Button asChild className="w-full">
-                    <a href={siteConfig.contact}>Get in touch</a>
-                  </Button>
+                  <TallySignupButton className="w-full">
+                    Join waitlist
+                  </TallySignupButton>
                 </div>
               </SheetContent>
             </Sheet>

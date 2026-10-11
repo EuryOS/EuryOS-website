@@ -1,12 +1,14 @@
 import type { Metadata, Viewport } from "next"
+import Script from "next/script"
 import { Geist_Mono, Inter, Outfit } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { StructuredData } from "@/components/site/structured-data"
-import { cn } from "@/lib/utils";
+import { TallyPopupAccessibility } from "@/components/site/tally-popup-accessibility"
+import { cn } from "@/lib/utils"
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -22,7 +24,7 @@ const fontDisplay = Outfit({
 
 const title = "EuryOS: Secure by design. Familiar by default."
 const description =
-  "EuryOS is a new kind of operating system that protects everything you do. It keeps apps contained, threats out, and your work running smoothly, from the smallest device to the most demanding workstation."
+  "EuryOS is an operating system in development, designed around clear app permissions, separate spaces, and a familiar desktop."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://euryos.com"),
@@ -103,7 +105,14 @@ export default function RootLayout({
     >
       <body>
         <StructuredData />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <TallyPopupAccessibility />
+          <Script
+            src="https://tally.so/widgets/embed.js"
+            strategy="afterInteractive"
+          />
+        </ThemeProvider>
       </body>
     </html>
   )

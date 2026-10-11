@@ -103,7 +103,7 @@ function OpengraphImage() {
               maxWidth: 820,
             }}
           >
-            A secure, reliable operating system for everything you do.
+            Apps with clear boundaries. A familiar desktop.
           </div>
         </div>
         <div
@@ -127,7 +127,7 @@ function OpengraphImage() {
               padding: "8px 20px",
             }}
           >
-            Launching 2026
+            In development
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import {
-  Check,
   FileText,
   Folder,
   LockKeyhole,
@@ -28,8 +27,8 @@ function ScreenshotPlaceholder({
       <div className="grid size-full grid-cols-[28%_1fr] bg-card text-left">
         <div className="border-r border-border/70 bg-muted/40 p-3">
           <div className="flex items-center gap-1.5 text-[9px] font-semibold">
-            <span className="size-1.5 rounded-full bg-success" />
-            Healthy
+            <span className="size-1.5 rounded-full bg-brand" />
+            Concept
           </div>
           <div className="mt-4 space-y-1 text-[9px] text-muted-foreground">
             <div className="rounded bg-foreground px-2 py-1.5 text-background">
@@ -59,8 +58,7 @@ function ScreenshotPlaceholder({
             )}
           </div>
           <div className="mt-2 rounded border border-border/70 bg-background p-2 text-[9px] text-muted-foreground">
-            Recent activity{" "}
-            <span className="float-right text-success">Protected</span>
+            App boundary concept
           </div>
         </div>
       </div>
@@ -122,7 +120,7 @@ function ScreenshotPlaceholder({
                   {index === 2 ? (
                     <LockKeyhole className="size-3" />
                   ) : (
-                    "12 items"
+                    "Example folder"
                   )}
                 </span>
               </div>
@@ -144,16 +142,13 @@ function ScreenshotPlaceholder({
           </div>
         </div>
         <div className="mt-5 space-y-2.5">
-          {["Ask before access", "Contain failures", "Verify at startup"].map(
+          {["Permission prompts", "App boundaries", "Recovery details TBD"].map(
             (item) => (
               <div
                 key={item}
-                className="flex items-center justify-between rounded border border-border/70 p-2 text-[10px]"
+                className="rounded border border-border/70 p-2 text-[10px]"
               >
-                <span>{item}</span>
-                <span className="inline-flex size-4 items-center justify-center rounded-full bg-success/10 text-success">
-                  <Check className="size-2.5" />
-                </span>
+                {item}
               </div>
             )
           )}

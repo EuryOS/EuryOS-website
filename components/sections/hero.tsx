@@ -1,15 +1,10 @@
 "use client"
 
-import {
-  ArrowRight,
-  Check,
-  LockKeyhole,
-  RotateCw,
-  ShieldCheck,
-} from "lucide-react"
+import { ArrowRight, Check, LockKeyhole, RotateCw } from "lucide-react"
 
 import { siteConfig } from "@/lib/site"
 import { Button } from "@/components/ui/button"
+import { TallySignupButton } from "@/components/site/tally-signup"
 import { Container } from "@/components/site/primitives"
 import { Reveal, Stagger, StaggerItem } from "@/components/site/reveal"
 import { WindowFrame } from "@/components/site/window-frame"
@@ -44,7 +39,7 @@ function Pill() {
         {siteConfig.version}
       </span>
       <span className="text-muted-foreground">
-        2027 preview · see what we&apos;re building
+        Design preview · see what we&apos;re building
       </span>
       <ArrowRight className="size-3.5 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
     </a>
@@ -79,9 +74,9 @@ function DesktopPreview() {
             ))}
           </div>
           <div className="mt-10 hidden rounded-md border border-border/70 p-2.5 text-[10px] leading-relaxed text-muted-foreground sm:block">
-            No hidden access.
+            A design concept.
             <br />
-            Every request is visible.
+            Permission boundaries.
           </div>
         </aside>
         <div className="p-4 sm:p-7">
@@ -174,19 +169,14 @@ function Hero() {
 
           <StaggerItem>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">
-              EuryOS gives each app its own protected space and asks before it
-              can reach your files, camera, or network. If something fails, the
-              rest keeps running.
+              EuryOS is being designed to give each app its own protected space,
+              ask before it reaches your files, camera, or network, and contain
+              failures so they are less likely to interrupt your work.
             </p>
           </StaggerItem>
 
           <StaggerItem className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="h-11 px-5 text-[0.95rem]">
-              <a href={siteConfig.contact}>
-                Request early access
-                <ArrowRight className="size-4" />
-              </a>
-            </Button>
+            <TallySignupButton size="lg" className="h-11 px-5 text-[0.95rem]" />
             <Button
               asChild
               size="lg"
@@ -198,9 +188,8 @@ function Hero() {
           </StaggerItem>
           <StaggerItem className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
             {[
-              ["Permission-first", LockKeyhole],
-              ["Crash-contained", RotateCw],
-              ["Verified core", ShieldCheck],
+              ["Permission requests", LockKeyhole],
+              ["Isolated apps", RotateCw],
             ].map(([label, Icon]) => (
               <span
                 key={label as string}
@@ -216,6 +205,9 @@ function Hero() {
 
       <Reveal delay={0.3} className="relative">
         <Container className="relative mt-14 max-w-5xl sm:mt-16">
+          <p className="mb-2 text-center text-xs text-muted-foreground">
+            Interface concept · details are still being defined
+          </p>
           <DesktopPreview />
         </Container>
       </Reveal>

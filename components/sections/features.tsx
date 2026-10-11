@@ -1,189 +1,85 @@
-import {
-  Check,
-  CheckCheck,
-  Layers,
-  Lock,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react"
+import { LockKeyhole, PanelsTopLeft, RotateCw } from "lucide-react"
 
-import { cn } from "@/lib/utils"
 import { Container, SectionHeading } from "@/components/site/primitives"
 import { Reveal, Stagger, StaggerItem } from "@/components/site/reveal"
 import { SelfHealing } from "@/components/sections/self-healing"
 
-function FeatureCard({
-  className,
-  children,
-}: {
-  className?: string
-  children: React.ReactNode
-}) {
-  return (
-    <div
-      className={cn(
-        "h-full rounded-lg border border-border/70 bg-card p-6 shadow-sm transition-colors hover:border-foreground/20 hover:bg-muted/30 sm:p-7",
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
-}
-
-function FeatureHeading({
-  icon: Icon,
-  title,
-  size = "lg",
-}: {
-  icon: React.ElementType
-  title: string
-  size?: "lg" | "xl"
-}) {
-  return (
-    <div className="flex items-center gap-2.5">
-      <Icon className="size-5 text-brand" />
-      <h3
-        className={cn(
-          "font-semibold tracking-tight",
-          size === "xl" ? "text-xl" : "text-lg"
-        )}
-      >
-        {title}
-      </h3>
-    </div>
-  )
-}
-
-function MiniPanel({
-  className,
-  children,
-}: {
-  className?: string
-  children: React.ReactNode
-}) {
-  return (
-    <div
-      className={cn(
-        "mt-6 rounded-lg border border-border/70 bg-background p-4 text-xs",
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
-}
+const steps = [
+  {
+    number: "01",
+    icon: LockKeyhole,
+    title: "You decide what an app can reach",
+    body: "When an app requests a file, camera, or network access, EuryOS is designed to make that request clear and let you choose.",
+    detail: "A request you can understand",
+  },
+  {
+    number: "02",
+    icon: PanelsTopLeft,
+    title: "Apps stay in separate spaces",
+    body: "Each app is intended to run with a defined boundary, keeping its access to the rest of your system limited.",
+    detail: "A boundary around each app",
+  },
+  {
+    number: "03",
+    icon: RotateCw,
+    title: "Failures stay contained",
+    body: "The system is being designed so a problem in one isolated component can be recovered without taking every other part with it.",
+    detail: "A contained recovery path",
+  },
+]
 
 function Features() {
   return (
-    <section id="why" className="relative py-24 sm:py-28">
+    <section
+      id="why"
+      className="relative border-t border-border/60 py-24 sm:py-28"
+    >
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Why EuryOS"
-            title="Give each app a boundary."
-            description="EuryOS asks before an app reaches your files, camera, or network. You can see each permission, change it, and keep working while the system contains failures."
+            eyebrow="How EuryOS is designed"
+            title="A clear path from permission to recovery."
+            description="The design starts with a simple idea: make app access visible, keep boundaries between parts, and plan for recovery when something goes wrong."
           />
         </Reveal>
 
-        <Stagger className="mt-14 grid grid-cols-6 gap-4">
-          {/* Flagship — you're in control */}
-          <StaggerItem className="col-span-6 lg:col-span-3">
-            <FeatureCard>
-              <FeatureHeading
-                icon={Lock}
-                title="Apps only get what you allow"
-                size="xl"
-              />
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                An app can reach your files, camera, or network only after you
-                grant access. You can revoke that access whenever you choose.
-              </p>
-              <MiniPanel className="mt-auto font-mono">
-                <div className="flex flex-wrap items-center gap-2">
-                  {["Files", "Camera", "Internet"].map((c) => (
-                    <span
-                      key={c}
-                      className="inline-flex items-center gap-1 rounded-md border border-success/20 bg-success/5 px-2 py-1 text-success"
-                    >
-                      {c}
-                      <Check className="size-3" strokeWidth={3} />
-                    </span>
-                  ))}
-                  <span className="rounded-md border border-border bg-muted px-2 py-1 text-muted-foreground line-through decoration-destructive/70">
-                    Everything else
+        <Stagger className="mt-12 grid gap-4 lg:grid-cols-3">
+          {steps.map((step, index) => (
+            <StaggerItem key={step.number}>
+              <article className="flex h-full min-h-64 flex-col rounded-xl border border-border/70 bg-card p-6 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-brand">
+                    {step.number}
                   </span>
+                  <step.icon
+                    aria-hidden="true"
+                    className="size-4 text-muted-foreground"
+                  />
                 </div>
-                <div className="mt-3 text-muted-foreground">
-                  access is yours to{" "}
-                  <span className="text-foreground">give</span> and{" "}
-                  <span className="text-foreground">take back</span>
+                <h3 className="mt-7 text-lg font-semibold tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {step.body}
+                </p>
+                <div className="mt-auto pt-8">
+                  {index === 2 ? (
+                    <div className="rounded-lg border border-border/70 bg-background p-3 text-xs">
+                      <p className="mb-3 font-medium text-muted-foreground">
+                        Recovery concept
+                      </p>
+                      <SelfHealing />
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2 rounded-lg border border-border/70 bg-background px-3 py-3 text-xs text-muted-foreground">
+                      <span className="size-2 rounded-full bg-brand" />
+                      {step.detail}
+                    </div>
+                  )}
                 </div>
-              </MiniPanel>
-            </FeatureCard>
-          </StaggerItem>
-
-          {/* Flagship — problems stay small */}
-          <StaggerItem className="col-span-6 lg:col-span-3">
-            <FeatureCard>
-              <FeatureHeading
-                icon={ShieldCheck}
-                title="A problem stays a small problem"
-                size="xl"
-              />
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                EuryOS keeps a buggy driver or app in its own protected space.
-                If it fails, the system restarts that part while your other apps
-                stay open.
-              </p>
-              <MiniPanel className="mt-auto font-mono">
-                <SelfHealing />
-              </MiniPanel>
-            </FeatureCard>
-          </StaggerItem>
-
-          {/* Verifiable */}
-          <StaggerItem className="col-span-6 sm:col-span-3 lg:col-span-2">
-            <FeatureCard>
-              <FeatureHeading
-                icon={CheckCheck}
-                title="Proven, not just promised"
-              />
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                The core that keeps you safe is small enough to be checked, line
-                by line, and proven correct, so EuryOS&apos;s security is
-                something experts can verify, not just a promise you have to
-                take on trust.
-              </p>
-            </FeatureCard>
-          </StaggerItem>
-
-          {/* One OS everywhere */}
-          <StaggerItem className="col-span-6 sm:col-span-3 lg:col-span-2">
-            <FeatureCard>
-              <FeatureHeading icon={Layers} title="The same OS, everywhere" />
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                One trusted foundation that runs everywhere, from a tiny
-                smart-home device to your everyday workstation, with the same
-                protection.
-              </p>
-            </FeatureCard>
-          </StaggerItem>
-
-          {/* Familiar */}
-          <StaggerItem className="col-span-6 lg:col-span-2">
-            <FeatureCard>
-              <FeatureHeading
-                icon={Sparkles}
-                title="Familiar from the first second"
-              />
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                A desktop, files, apps, and settings that feel instantly
-                familiar. All the reinvention lives under the hood, so
-                there&apos;s nothing new to learn.
-              </p>
-            </FeatureCard>
-          </StaggerItem>
+              </article>
+            </StaggerItem>
+          ))}
         </Stagger>
       </Container>
     </section>

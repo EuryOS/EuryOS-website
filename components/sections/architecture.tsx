@@ -84,7 +84,7 @@ function StackDiagram() {
         <StaggerItem>
           <Band
             label="Device drivers"
-            sublabel="Restartable, kept at arm's length"
+            sublabel="Hardware services, design details in progress"
             chips={["Graphics", "Wi-Fi", "Storage"]}
           />
         </StaggerItem>
@@ -99,7 +99,7 @@ function StackDiagram() {
               <span className="animate-checkpoint absolute top-0 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground" />
             </div>
             <span className="relative rounded-md border border-border bg-background px-3 py-1 text-[11px] font-medium text-muted-foreground">
-              every request checked · nothing trusted by default
+              requests checked at clear boundaries
             </span>
           </div>
         </StaggerItem>
@@ -108,15 +108,15 @@ function StackDiagram() {
           <Band
             highlight
             label="EuryOS core"
-            sublabel="Small, trusted, and verified"
+            sublabel="Verification approach still being defined"
             chips={["trusted core"]}
           />
         </StaggerItem>
         <StaggerItem>
           <Band
             label="Your device"
-            sublabel="Phone, laptop, workstation, server"
-            chips={["any hardware"]}
+            sublabel="Target hardware is still being defined"
+            chips={["hardware plans in progress"]}
           />
         </StaggerItem>
       </Stagger>
@@ -127,33 +127,33 @@ function StackDiagram() {
 const supports = [
   {
     icon: ShieldCheck,
-    title: "A tiny core you can trust",
-    body: "Only a small, compact core has full control. It's small enough to be checked and proven correct, unlike a sprawling traditional system.",
+    title: "Keep the trusted core small",
+    body: "EuryOS is designed around a small trusted core. The verification approach and results are still being defined.",
   },
   {
     icon: RotateCw,
-    title: "Self-healing by default",
-    body: "Drivers and features run on their own. If one fails, EuryOS restarts it in place. Your apps and your work simply keep going.",
+    title: "Plan for recovery",
+    body: "Keeping components separate is intended to make it possible to recover one part without restarting the whole system. The recovery details are still being defined.",
   },
   {
     icon: Boxes,
-    title: "Everything else is just an app",
-    body: "Even core features live in their own protected space, so one failure stays isolated from the rest of the system.",
+    title: "Separate system components",
+    body: "The architecture aims to give apps and system services clear boundaries, limiting how far a fault can spread.",
   },
 ]
 
 function Architecture() {
   return (
     <section
-      id="reliability"
+      id="architecture"
       className="relative border-t border-border/60 bg-muted/20 py-24 sm:py-28"
     >
       <Container>
         <Reveal>
           <SectionHeading
-            eyebrow="Reliability"
-            title="Built so problems can't spread."
-            description="EuryOS keeps each part of the system in its own protected space. When one piece stumbles, the system catches and restarts it while the rest keeps running."
+            eyebrow="Trusted core"
+            title="A small foundation. Clear boundaries above it."
+            description="EuryOS is planned around a compact trusted core, with apps and system components separated by explicit boundaries. Implementation and verification details are still being defined."
           />
         </Reveal>
 

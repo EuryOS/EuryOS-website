@@ -30,8 +30,7 @@ const caption: Variants = {
 }
 
 /**
- * The "self-healing" mini-demo for the Features section: a crashed driver is
- * caught and restarted, playing out once as the card scrolls into view.
+ * A visual concept for an isolated component recovery path.
  */
 function SelfHealing() {
   const reduce = useReducedMotion()
@@ -48,22 +47,21 @@ function SelfHealing() {
           variants={reduce ? undefined : crashed}
           className="rounded-md border border-destructive/40 bg-destructive/10 px-2 py-1 text-destructive"
         >
-          driver crashed
+          component fails
         </motion.span>
         <motion.span variants={reduce ? undefined : arrow}>→</motion.span>
         <motion.span
           variants={reduce ? undefined : restarted}
           className="rounded-md border border-success/20 bg-success/5 px-2 py-1 text-success"
         >
-          restarted
+          recovery attempt
         </motion.span>
       </div>
       <motion.div
         variants={reduce ? undefined : caption}
         className="mt-3 text-muted-foreground"
       >
-        your work <span className="text-success">untouched</span> · system{" "}
-        <span className="text-success">still running</span>
+        intended behavior · implementation details still being defined
       </motion.div>
     </motion.div>
   )

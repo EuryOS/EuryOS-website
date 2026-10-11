@@ -1,18 +1,17 @@
 export const siteConfig = {
   name: "EuryOS",
   version: "preview",
-  launchYear: "2027",
   tagline: "Secure by design. Familiar by default.",
   description:
-    "EuryOS is a new kind of operating system that protects everything you do. It keeps apps contained, threats out, and your work running smoothly.",
+    "EuryOS is an operating system in development, designed around clear app permissions, separate spaces, and a familiar desktop.",
   url: "https://euryos.com",
   email: "hello@euryos.com",
   contact: "mailto:hello@euryos.com",
 } as const
 
 export const navLinks = [
-  { label: "Why EuryOS", href: "#why" },
-  { label: "Security", href: "#security" },
-  { label: "Reliability", href: "#reliability" },
-  { label: "Experience", href: "#experience" },
+  { label: "How it works", href: "#why" },
+  { label: "Architecture", href: "#architecture" },
+  { label: "Desktop", href: "#experience" },
+  { label: "FAQ", href: "#faq" },
 ] as const
